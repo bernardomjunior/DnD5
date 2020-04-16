@@ -17,6 +17,7 @@ buildscript {
         junit_junit = '4.12'
         androidx_junit = '1.1.1'
         espresso_core = '3.2.0'
+        retrofit_verison = "2.8.1"
     }
 
 

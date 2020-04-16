@@ -39,4 +39,8 @@ dependencies {
     testImplementation "junit:junit:$junit_junit"
     androidTestImplementation "androidx.test.ext:junit:$androidx_junit"
     androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_core"
+
+    //Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_verison"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_verison"
 }
