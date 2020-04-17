@@ -38,9 +38,7 @@ class HomeActivity : AppCompatActivity() {
         list_app_options.adapter?.notifyDataSetChanged()
     }
 
-
     fun updateOptionsKeys(dictionary: HashMap<String, String>): HashMap<String, String> {
-
         val newDictionary = HashMap<String, String>()
         val dictionaryKeys = dictionary.keys
         dictionaryKeys.forEach { key ->
@@ -59,6 +57,5 @@ class HomeActivity : AppCompatActivity() {
         }
         return newStr
     }
-
 
 }
