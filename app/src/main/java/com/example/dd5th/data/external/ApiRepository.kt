@@ -1,6 +1,5 @@
 package com.example.dd5th.data.external
 
-import androidx.appcompat.app.AppCompatActivity
 import com.example.dd5th.BuildConfig.BASE_URL
 import com.example.dd5th.data.domain.ApiListResponse
 import com.example.dd5th.ui.activity.HomeActivity
@@ -43,14 +42,14 @@ class ApiRepository {
             )
     }
 
-    fun listResourceItems(resourceName: String, activity: ResourceListActivity){
+    fun listResourceItems(resourceName: String, activity: ResourceListActivity) {
         retrofit.listResourceItems(resourceName)
-            .enqueue( object : Callback<ApiListResponse>{
+            .enqueue(object : Callback<ApiListResponse> {
                 override fun onResponse(
                     call: Call<ApiListResponse>,
                     response: Response<ApiListResponse>
                 ) {
-                    if (response.isSuccessful){
+                    if (response.isSuccessful) {
                         val apiList = response.body() as ApiListResponse
                         activity.updateList(apiList.results)
                     }
