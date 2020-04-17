@@ -10,7 +10,7 @@ interface ApiService {
     @GET("api/")
     fun listApiOptions(): Call<HashMap<String, String>>
 
-    @GET("{resource}")
+    @GET("api/{resource}/")
     fun listResourceItems(
         @Path("resource") resource: String
     ): Call<ApiListResponse>
