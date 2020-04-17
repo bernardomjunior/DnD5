@@ -6,10 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.dd5th.R
-import kotlinx.android.synthetic.main.home_options_list_item.view.*
+import kotlinx.android.synthetic.main.home_options_list_item.view.textview_item_options
 
 class HomeListAdapter(
-    private val options: ArrayList<String>,
+    private val options: HashMap<String, String>,
     private val context: Context,
     private val listener: (String) -> Unit
 ) : RecyclerView.Adapter<HomeListAdapter.ViewHolder>() {
@@ -36,6 +36,6 @@ class HomeListAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(options[position], listener)
+            holder.bind(options.keys.toList().sorted()[position], listener)
     }
 }
