@@ -16,7 +16,7 @@ class Monster(
     val intelligence: Int,
     val wisdom: Int,
     val charisma: Int,
-    val proficiencies: ArrayList<ProfeciencyResponse>,
+    val proficiencies: ArrayList<ApiListItemResponse>,
     val damageImmunities: ArrayList<String>,
     val languages: String,
     val challengeRatting: Int
