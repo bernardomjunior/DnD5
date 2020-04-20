@@ -53,7 +53,6 @@ class ResourceListActivity : AppCompatActivity() {
     }
 
     fun updateList(resourceList: ArrayList<ApiListItemResponse>) {
-        Toast.makeText(this, "a", Toast.LENGTH_SHORT).show()
         this.resourceList.clear()
         this.resourceList.addAll(resourceList)
         list_app_options.adapter?.notifyDataSetChanged()

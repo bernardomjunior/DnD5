@@ -1,6 +1,6 @@
 package com.example.dd5th.data.domain
 
-class Monster(
+data class Monster(
     val name: String,
     val size: String,
     val type: String,
