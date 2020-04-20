@@ -21,4 +21,9 @@ interface ApiService {
         @Path("monsterName") resource: String
     ): Call<Monster>
 
+    @GET("api/equipment/{equipmentName}")
+    fun getEquipment(
+        @Path("equipmentName") equipmentName: String
+    ): Call<Monster>
+
 }
