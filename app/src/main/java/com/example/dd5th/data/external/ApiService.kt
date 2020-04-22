@@ -1,6 +1,7 @@
 package com.example.dd5th.data.external
 
 import com.example.dd5th.data.domain.ApiListResponse
+import com.example.dd5th.data.domain.Equipment
 import com.example.dd5th.data.domain.Monster
 import retrofit2.Call
 import retrofit2.http.GET
@@ -24,6 +25,6 @@ interface ApiService {
     @GET("api/equipment/{equipmentName}")
     fun getEquipment(
         @Path("equipmentName") equipmentName: String
-    ): Call<Monster>
+    ): Call<Equipment>
 
 }
