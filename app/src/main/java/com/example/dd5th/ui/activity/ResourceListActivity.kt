@@ -23,9 +23,9 @@ class ResourceListActivity : AppCompatActivity() {
 
     private fun setUpFields() {
         setUpList()
-        val url = getExtras()
+        val url = getUrlExtra()
         url?.let {
-            getResourceList(it.split("/")[2])
+            getResourceList(it)
         }
     }
 

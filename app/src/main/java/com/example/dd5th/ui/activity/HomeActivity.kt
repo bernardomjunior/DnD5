@@ -43,7 +43,7 @@ class HomeActivity : AppCompatActivity() {
         val dictionaryKeys = dictionary.keys
         dictionaryKeys.forEach { key ->
             dictionary[key]?.let {
-                newDictionary[capitalizeOption(key)] = dictionary[key]!!
+                newDictionary[capitalizeOption(key)] = key
             }
         }
         return newDictionary
