@@ -3,6 +3,7 @@ package com.example.dd5th.data.external
 import com.example.dd5th.BuildConfig.BASE_URL
 import com.example.dd5th.data.domain.ApiListResponse
 import com.example.dd5th.data.domain.Equipment
+import com.example.dd5th.ui.activity.EquipmentActivity
 import com.example.dd5th.ui.activity.HomeActivity
 import com.example.dd5th.ui.activity.ResourceListActivity
 import com.google.gson.GsonBuilder
@@ -64,7 +65,7 @@ class ApiRepository {
             )
     }
 
-    fun getEquipment(equipmentName: String, activity: ResourceListActivity){
+    fun getEquipment(equipmentName: String, activity: EquipmentActivity){
         retrofit.getEquipment(equipmentName)
             .enqueue(object : Callback<Equipment>{
                 override fun onResponse(call: Call<Equipment>, response: Response<Equipment>) {
