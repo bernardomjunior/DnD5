@@ -42,7 +42,6 @@ class HomeActivity : AppCompatActivity() {
         val newDictionary = HashMap<String, String>()
         val dictionaryKeys = dictionary.keys
         dictionaryKeys.forEach { key ->
-            println(key)
             dictionary[key]?.let {
                 newDictionary[capitalizeOption(key)] = dictionary[key]!!
             }
