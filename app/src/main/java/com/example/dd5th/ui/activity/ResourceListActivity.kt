@@ -1,7 +1,6 @@
 package com.example.dd5th.ui.activity
 
 import android.os.Bundle
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.dd5th.R
@@ -36,7 +35,7 @@ class ResourceListActivity : AppCompatActivity() {
         }
     }
 
-    private fun getExtras() : String?{
+    private fun getUrlExtra() : String?{
         intent.extras?.let {
             if (it.containsKey("option")) {
                 supportActionBar?.title = it.getString("option")
