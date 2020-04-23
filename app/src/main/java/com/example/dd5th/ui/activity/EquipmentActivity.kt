@@ -25,6 +25,9 @@ class EquipmentActivity: AppCompatActivity() {
         txt_equipment_name.text = equipment.name
         txt_equipment_category.text = equipment.equipmentCategory
         txt_equipment_gear_category.text = equipment.gearCategory
+        txt_equipment_cost_ammount.text = equipment.cost.quantity.toString()
+        txt_equipment_cost_unit.text = equipment.cost.unit
+        txt_equipment_weight.text = equipment.weight.toString()
     }
 
     private fun getEquipmentIndexExtra() : String?{
