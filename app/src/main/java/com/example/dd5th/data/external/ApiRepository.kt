@@ -3,8 +3,10 @@ package com.example.dd5th.data.external
 import com.example.dd5th.BuildConfig.BASE_URL
 import com.example.dd5th.data.domain.ApiListResponse
 import com.example.dd5th.data.domain.Equipment
+import com.example.dd5th.data.domain.Language
 import com.example.dd5th.ui.activity.EquipmentActivity
 import com.example.dd5th.ui.activity.HomeActivity
+import com.example.dd5th.ui.activity.LanguagesActivity
 import com.example.dd5th.ui.activity.ResourceListActivity
 import com.google.gson.GsonBuilder
 import retrofit2.Call
@@ -75,6 +77,21 @@ class ApiRepository {
                 }
 
                 override fun onFailure(call: Call<Equipment>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+            })
+    }
+
+    fun getLanguage(languageName: String, activity: LanguagesActivity){
+        retrofit.getLanguage(languageName)
+            .enqueue(object : Callback<Language>{
+                override fun onResponse(call: Call<Language>, response: Response<Language>) {
+                    if (response.isSuccessful){
+                        activity.onLanguageResult(response.body() as Language)
+                    }
+                }
+
+                override fun onFailure(call: Call<Language>, t: Throwable) {
                     TODO("Not yet implemented")
                 }
             })
