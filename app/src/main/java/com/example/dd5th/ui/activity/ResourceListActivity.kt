@@ -61,13 +61,13 @@ class ResourceListActivity: AppCompatActivity() {
     private fun startItemActivity(resourceString: String, itemResponse: String){
         val intent = when(resourceString){
             "equipment" -> Intent(this, EquipmentActivity::class.java)
+            "languages" -> Intent(this, LanguagesActivity::class.java)
 //            "ability-scores" -> Intent(this, EquipmentActivity::class.java)
 //            "classes" -> Intent(this, EquipmentActivity::class.java)
 //            "conditions" -> Intent(this, EquipmentActivity::class.java)
 //            "damage-types" -> Intent(this, EquipmentActivity::class.java)
 //            "equipment-categories" -> Intent(this, EquipmentActivity::class.java)
 //            "features" -> Intent(this, EquipmentActivity::class.java)
-//            "languages" -> Intent(this, EquipmentActivity::class.java)
 //            "magic-schools" -> Intent(this, EquipmentActivity::class.java)
 //            "monsters" -> Intent(this, EquipmentActivity::class.java)
 //            "proficiencies" -> Intent(this, EquipmentActivity::class.java)

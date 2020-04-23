@@ -21,6 +21,7 @@
         </activity>
         <activity android:name=".ui.activity.ResourceListActivity" />
         <activity android:name=".ui.activity.EquipmentActivity" />
+        <activity android:name=".ui.activity.LanguagesActivity" />
 
     </application>
 </manifest>
