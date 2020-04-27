@@ -14,7 +14,7 @@ interface EquipmentContract {
     }
 
     interface Callback {
-        fun onSucess(equipment: Equipment)
+        fun onSuccess(equipment: Equipment)
         fun onError()
         fun onFailure()
     }

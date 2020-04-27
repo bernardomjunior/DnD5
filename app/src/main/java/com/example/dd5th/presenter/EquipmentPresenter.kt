@@ -19,7 +19,7 @@ class EquipmentPresenter(
         }
     }
 
-    override fun onSucess(equipment: Equipment) {
+    override fun onSuccess(equipment: Equipment) {
         view.showEquipment(equipment)
     }
 

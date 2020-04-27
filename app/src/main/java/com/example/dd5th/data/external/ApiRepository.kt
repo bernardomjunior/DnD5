@@ -8,9 +8,7 @@ import com.example.dd5th.contract.SpecificResourceListingContract
 import com.example.dd5th.data.domain.ApiListResponse
 import com.example.dd5th.data.domain.Equipment
 import com.example.dd5th.data.domain.Language
-import com.example.dd5th.ui.activity.EquipmentActivity
 import com.example.dd5th.ui.activity.LanguagesActivity
-import com.example.dd5th.ui.activity.SpecificResourceListActivity
 import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Callback
@@ -77,7 +75,7 @@ class ApiRepository : GenericResourceListingContract.Api, SpecificResourceListin
             .enqueue(object : Callback<Equipment>{
                 override fun onResponse(call: Call<Equipment>, response: Response<Equipment>) {
                     if (response.isSuccessful){
-                        callback.onSucess(response.body() as Equipment)
+                        callback.onSuccess(response.body() as Equipment)
                     }
                 }
 
