@@ -10,14 +10,14 @@ import kotlinx.android.synthetic.main.activity_equipment.*
 class EquipmentActivity: AppCompatActivity() {
 
     private lateinit var equipment: Equipment
-    private val api = ApiRepository()
+//    private val api = ApiRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_equipment)
         val equipmentIndex = getEquipmentIndexExtra()
         equipmentIndex?.let {
-            api.getEquipment(it, this)
+//            api.getEquipment(it, this)
         }
     }
 

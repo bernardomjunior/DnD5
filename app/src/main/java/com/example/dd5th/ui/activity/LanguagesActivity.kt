@@ -11,14 +11,14 @@ import kotlinx.android.synthetic.main.activity_languages.*
 class LanguagesActivity : AppCompatActivity() {
 
     private lateinit var language: Language
-    private val api = ApiRepository()
+//    private val api = ApiRepository()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_languages)
         val languageIndex = intent.extras?.getString("languages")
         languageIndex?.let {
-            api.getLanguage(it, this)
+//            api.getLanguage(it, this)
         }
     }
 

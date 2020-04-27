@@ -1,13 +1,15 @@
 package com.example.dd5th.data.external
 
+import android.util.Log
 import com.example.dd5th.BuildConfig.BASE_URL
+import com.example.dd5th.contract.GenericResourceListingContract
+import com.example.dd5th.contract.SpecificResourceListingContract
 import com.example.dd5th.data.domain.ApiListResponse
 import com.example.dd5th.data.domain.Equipment
 import com.example.dd5th.data.domain.Language
 import com.example.dd5th.ui.activity.EquipmentActivity
-import com.example.dd5th.ui.activity.HomeActivity
 import com.example.dd5th.ui.activity.LanguagesActivity
-import com.example.dd5th.ui.activity.ResourceListActivity
+import com.example.dd5th.ui.activity.SpecificResourceListActivity
 import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Callback
@@ -15,7 +17,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ApiRepository {
+class ApiRepository : GenericResourceListingContract.Api, SpecificResourceListingContract.Api{
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -27,7 +29,7 @@ class ApiRepository {
         .build()
         .create(ApiService::class.java)
 
-    fun listApiOptions(homeActivity: HomeActivity) {
+    override fun listApiOptions(callback: GenericResourceListingContract.Callback) {
         retrofit.listApiOptions()
             .enqueue(object : Callback<HashMap<String, String>> {
                 override fun onResponse(
@@ -35,7 +37,7 @@ class ApiRepository {
                     response: Response<HashMap<String, String>>
                 ) {
                     if (response.isSuccessful) {
-                        homeActivity.upDateOptionList(response.body() as HashMap<String, String>)
+                        callback.onSuccess(response.body() as HashMap<String, String>)
                     }
                 }
 
@@ -46,7 +48,7 @@ class ApiRepository {
             )
     }
 
-    fun listResourceItems(resourceName: String, activity: ResourceListActivity) {
+    override fun listResourceItems(resourceName: String, callback: SpecificResourceListingContract.Callback) {
         retrofit.listResourceItems(resourceName)
             .enqueue(object : Callback<ApiListResponse> {
                 override fun onResponse(
@@ -55,7 +57,9 @@ class ApiRepository {
                 ) {
                     if (response.isSuccessful) {
                         val apiList = response.body() as ApiListResponse
-                        activity.updateList(apiList.results)
+                        callback.onSuccess(apiList.results)
+                        Log.w("Specific listing", resourceName + " 2")
+
                     }
                 }
 
