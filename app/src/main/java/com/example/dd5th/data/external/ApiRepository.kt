@@ -2,6 +2,7 @@ package com.example.dd5th.data.external
 
 import android.util.Log
 import com.example.dd5th.BuildConfig.BASE_URL
+import com.example.dd5th.contract.EquipmentContract
 import com.example.dd5th.contract.GenericResourceListingContract
 import com.example.dd5th.contract.SpecificResourceListingContract
 import com.example.dd5th.data.domain.ApiListResponse
@@ -17,7 +18,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ApiRepository : GenericResourceListingContract.Api, SpecificResourceListingContract.Api{
+class ApiRepository : GenericResourceListingContract.Api, SpecificResourceListingContract.Api, EquipmentContract.Api{
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -71,12 +72,12 @@ class ApiRepository : GenericResourceListingContract.Api, SpecificResourceListin
             )
     }
 
-    fun getEquipment(equipmentName: String, activity: EquipmentActivity){
+    override fun getEquipment(equipmentName: String, callback: EquipmentContract.Callback){
         retrofit.getEquipment(equipmentName)
             .enqueue(object : Callback<Equipment>{
                 override fun onResponse(call: Call<Equipment>, response: Response<Equipment>) {
                     if (response.isSuccessful){
-                        activity.onEquipmentResult(response.body() as Equipment)
+                        callback.onSucess(response.body() as Equipment)
                     }
                 }
 

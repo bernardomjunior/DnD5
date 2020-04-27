@@ -3,22 +3,21 @@ package com.example.dd5th.ui.activity
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dd5th.R
+import com.example.dd5th.contract.EquipmentContract
 import com.example.dd5th.data.domain.Equipment
 import com.example.dd5th.data.external.ApiRepository
+import com.example.dd5th.presenter.EquipmentPresenter
 import kotlinx.android.synthetic.main.activity_equipment.*
 
-class EquipmentActivity: AppCompatActivity() {
+class EquipmentActivity: AppCompatActivity(), EquipmentContract.View {
 
     private lateinit var equipment: Equipment
-//    private val api = ApiRepository()
+    private val presenter = EquipmentPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_equipment)
-        val equipmentIndex = getEquipmentIndexExtra()
-        equipmentIndex?.let {
-//            api.getEquipment(it, this)
-        }
+        presenter.getEquipmentIfExtra(intent.extras)
     }
 
     private fun fillFields() {
@@ -30,18 +29,8 @@ class EquipmentActivity: AppCompatActivity() {
         txt_equipment_weight.text = equipment.weight.toString()
     }
 
-    private fun getEquipmentIndexExtra() : String?{
-        intent.extras?.let {
-            if (it.containsKey("equipment")) {
-                return it.getString("equipment")
-            }
-        }
-        return null
-    }
-
-    fun onEquipmentResult(equipment: Equipment){
+    override fun showEquipment(equipment: Equipment) {
         this.equipment = equipment
         fillFields()
     }
-
 }
