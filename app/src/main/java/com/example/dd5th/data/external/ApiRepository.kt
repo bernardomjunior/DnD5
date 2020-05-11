@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.dd5th.BuildConfig.BASE_URL
 import com.example.dd5th.contract.EquipmentContract
 import com.example.dd5th.contract.GenericResourceListingContract
+import com.example.dd5th.contract.LanguageContract
 import com.example.dd5th.contract.SpecificResourceListingContract
 import com.example.dd5th.data.domain.ApiListResponse
 import com.example.dd5th.data.domain.Equipment
@@ -16,7 +17,10 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ApiRepository : GenericResourceListingContract.Api, SpecificResourceListingContract.Api, EquipmentContract.Api{
+class ApiRepository : GenericResourceListingContract.Api,
+    SpecificResourceListingContract.Api,
+    EquipmentContract.Api,
+    LanguageContract.Api{
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -85,12 +89,12 @@ class ApiRepository : GenericResourceListingContract.Api, SpecificResourceListin
             })
     }
 
-    fun getLanguage(languageName: String, activity: LanguagesActivity){
+    override fun getLanguage(languageName: String, callback: LanguageContract.Callback){
         retrofit.getLanguage(languageName)
             .enqueue(object : Callback<Language>{
                 override fun onResponse(call: Call<Language>, response: Response<Language>) {
                     if (response.isSuccessful){
-                        activity.onLanguageResult(response.body() as Language)
+                        callback.onSuccess(response.body() as Language)
                     }
                 }
 
