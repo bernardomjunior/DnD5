@@ -22,6 +22,7 @@
         <activity android:name=".ui.activity.SpecificResourceListActivity" />
         <activity android:name=".ui.activity.EquipmentActivity" />
         <activity android:name=".ui.activity.LanguagesActivity" />
+        <activity android:name=".ui.activity.AbilityScoreActivity" />
 
     </application>
 </manifest>
