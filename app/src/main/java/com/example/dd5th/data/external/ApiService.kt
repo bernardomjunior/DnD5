@@ -1,9 +1,10 @@
 package com.example.dd5th.data.external
 
 import com.example.dd5th.data.domain.ApiListResponse
+import com.example.dd5th.data.domain.Monster
 import com.example.dd5th.data.domain.Equipment
 import com.example.dd5th.data.domain.Language
-import com.example.dd5th.data.domain.Monster
+import com.example.dd5th.data.domain.AbilityScore
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -32,5 +33,10 @@ interface ApiService {
     fun getLanguage(
         @Path("languageName") languageName: String
     ): Call<Language>
+
+    @GET("/api/ability-scores/{abilityScore}")
+    fun getAbilityScore(
+        @Path("abilityScore") abilityName: String
+    ): Call<AbilityScore>
 
 }

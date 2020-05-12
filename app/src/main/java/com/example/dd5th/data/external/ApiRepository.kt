@@ -2,14 +2,15 @@ package com.example.dd5th.data.external
 
 import android.util.Log
 import com.example.dd5th.BuildConfig.BASE_URL
-import com.example.dd5th.contract.EquipmentContract
 import com.example.dd5th.contract.GenericResourceListingContract
-import com.example.dd5th.contract.LanguageContract
 import com.example.dd5th.contract.SpecificResourceListingContract
+import com.example.dd5th.contract.EquipmentContract
+import com.example.dd5th.contract.LanguageContract
+import com.example.dd5th.contract.AbilityScoreContract
+import com.example.dd5th.data.domain.AbilityScore
 import com.example.dd5th.data.domain.ApiListResponse
 import com.example.dd5th.data.domain.Equipment
 import com.example.dd5th.data.domain.Language
-import com.example.dd5th.ui.activity.LanguagesActivity
 import com.google.gson.GsonBuilder
 import retrofit2.Call
 import retrofit2.Callback
@@ -20,7 +21,8 @@ import retrofit2.converter.gson.GsonConverterFactory
 class ApiRepository : GenericResourceListingContract.Api,
     SpecificResourceListingContract.Api,
     EquipmentContract.Api,
-    LanguageContract.Api{
+    LanguageContract.Api,
+    AbilityScoreContract.Api{
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -72,6 +74,24 @@ class ApiRepository : GenericResourceListingContract.Api,
             }
 
             )
+    }
+
+    override fun getAbilityScore(abilityName: String, callback: AbilityScoreContract.Callback) {
+        retrofit.getAbilityScore(abilityName)
+            .enqueue(object: Callback<AbilityScore>{
+                override fun onResponse(
+                    call: Call<AbilityScore>,
+                    response: Response<AbilityScore>
+                ) {
+                    if(response.isSuccessful){
+                        callback.onSuccess(response.body() as AbilityScore)
+                    }
+                }
+
+                override fun onFailure(call: Call<AbilityScore>, t: Throwable) {
+                    TODO("Not yet implemented")
+                }
+            })
     }
 
     override fun getEquipment(equipmentName: String, callback: EquipmentContract.Callback){
