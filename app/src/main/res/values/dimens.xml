@@ -5,7 +5,7 @@
     <dimen name="default_txt_size">16sp</dimen>
     <dimen name="title_margin">36dp</dimen>
     <dimen name="default_start_margin">8dp</dimen>
-    <dimen name="subtext_identation">4dp</dimen>
+    <dimen name="subtext_indentation">4dp</dimen>
     <dimen name="text_category_margin">16dp</dimen>
     <dimen name="big_list_item_margin">16dp</dimen>
 </resources>
