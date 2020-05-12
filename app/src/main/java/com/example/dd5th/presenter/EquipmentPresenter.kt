@@ -7,14 +7,14 @@ import com.example.dd5th.data.external.ApiRepository
 
 class EquipmentPresenter(
     private val view: EquipmentContract.View
-): EquipmentContract.Presenter, EquipmentContract.Callback {
+) : EquipmentContract.Presenter, EquipmentContract.Callback {
 
     private val api: EquipmentContract.Api = ApiRepository()
 
-    override fun getEquipmentIfExtra(extras: Bundle?){
-        extras?.let {
-            if (it.containsKey("equipment")) {
-                api.getEquipment(it.getString("equipment")!!, this)
+    override fun getEquipmentIfExtra(extras: Bundle?) {
+        extras?.let { e ->
+            e.getString("equipment")?.let {
+                api.getEquipment(it, this)
             }
         }
     }

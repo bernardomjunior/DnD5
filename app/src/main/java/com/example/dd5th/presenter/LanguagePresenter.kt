@@ -1,5 +1,6 @@
 package com.example.dd5th.presenter
 
+import android.os.Bundle
 import com.example.dd5th.contract.LanguageContract
 import com.example.dd5th.data.domain.Language
 import com.example.dd5th.data.external.ApiRepository
@@ -10,8 +11,12 @@ class LanguagePresenter (
 
     private val api: LanguageContract.Api = ApiRepository()
 
-    override fun getLanguage(languageName: String) {
-        api.getLanguage(languageName, this)
+    override fun getLanguageIfExtra(extras: Bundle?) {
+        extras?.let { e ->
+            e.getString("languages")?.let {
+                api.getLanguage(it, this)
+            }
+        }
     }
 
     override fun onSuccess(language: Language) {
