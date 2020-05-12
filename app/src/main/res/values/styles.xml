@@ -9,4 +9,29 @@
         <item name="android:fontFamily">@font/baldur</item>
     </style>
 
+    <style name="Title">
+        <item name="android:layout_margin">@dimen/title_margin</item>
+        <item name="android:textSize">@dimen/big_title</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="FirstCategory">
+        <item name="android:layout_marginStart">@dimen/default_start_margin</item>
+        <item name="android:layout_marginTop">@dimen/title_margin</item>
+        <item name="android:textSize">@dimen/default_txt_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="NotFirstCategory">
+        <item name="android:layout_marginStart">@dimen/default_start_margin</item>
+        <item name="android:layout_marginTop">@dimen/text_category_margin</item>
+        <item name="android:textSize">@dimen/default_txt_size</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="CategoryContent">
+        <item name="android:layout_margin">@dimen/subtext_indentation</item>
+        <item name="android:textSize">@dimen/default_txt_size</item>
+    </style>
+
 </resources>

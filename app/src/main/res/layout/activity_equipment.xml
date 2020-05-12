@@ -10,9 +10,7 @@
         android:id="@+id/txt_equipment_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/title_margin"
-        android:textSize="@dimen/big_title"
-        android:textStyle="bold"
+        style="@style/Title"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,21 +20,16 @@
         android:id="@+id/equipment_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_start_margin"
-        android:layout_marginTop="@dimen/title_margin"
         android:text="@string/equipment_category"
-        android:textSize="@dimen/default_txt_size"
-        android:textStyle="bold"
+        style="@style/FirstCategory"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_equipment_name" />
-
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/txt_equipment_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/subtext_indentation"
-        android:textSize="@dimen/default_txt_size"
+        style="@style/CategoryContent"
         app:layout_constraintStart_toStartOf="@id/equipment_category"
         app:layout_constraintTop_toBottomOf="@id/equipment_category"
         tools:text="Adventuring Gear" />
@@ -45,11 +38,8 @@
         android:id="@+id/equipment_gear_category"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_start_margin"
-        android:layout_marginTop="@dimen/text_category_margin"
         android:text="@string/gear_category"
-        android:textSize="@dimen/default_txt_size"
-        android:textStyle="bold"
+        style="@style/NotFirstCategory"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_equipment_category" />
 
@@ -67,11 +57,8 @@
         android:id="@+id/equipment_cost"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_start_margin"
-        android:layout_marginTop="@dimen/text_category_margin"
         android:text="@string/item_cost"
-        android:textSize="@dimen/default_txt_size"
-        android:textStyle="bold"
+        style="@style/NotFirstCategory"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_equipment_gear_category" />
 
@@ -79,8 +66,7 @@
         android:id="@+id/txt_equipment_cost_ammount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/subtext_indentation"
-        android:textSize="@dimen/default_txt_size"
+        style="@style/CategoryContent"
         app:layout_constraintStart_toStartOf="@id/equipment_cost"
         app:layout_constraintTop_toBottomOf="@id/equipment_cost"
         tools:text="2" />
@@ -89,20 +75,17 @@
         android:id="@+id/txt_equipment_cost_unit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/subtext_indentation"
+        style="@style/CategoryContent"
         app:layout_constraintStart_toEndOf="@id/txt_equipment_cost_ammount"
-        app:layout_constraintTop_toTopOf="@id/txt_equipment_cost_ammount"
+        app:layout_constraintTop_toBottomOf="@id/equipment_cost"
         tools:text="gp" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/equipment_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/default_start_margin"
-        android:layout_marginTop="@dimen/text_category_margin"
         android:text="@string/item_weight"
-        android:textSize="@dimen/default_txt_size"
-        android:textStyle="bold"
+        style="@style/NotFirstCategory"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/txt_equipment_cost_ammount" />
 
@@ -110,8 +93,7 @@
         android:id="@+id/txt_equipment_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/subtext_indentation"
-        android:textSize="@dimen/default_txt_size"
+        style="@style/CategoryContent"
         app:layout_constraintStart_toStartOf="@id/equipment_weight"
         app:layout_constraintTop_toBottomOf="@id/equipment_weight"
         tools:text="2" />
