@@ -14,7 +14,7 @@ interface SpecificResourceListingContract {
     interface Presenter {
         fun getList(resourceName: String)
         fun getExtras(extras: Bundle?): String?
-        fun getItemActivity(context: Context, resourceItem: String): Intent?
+        fun getItemActivity(context: Context, resourceItem: String, itemResponse: String): Intent?
     }
     interface Callback {
         fun onSuccess(list: ArrayList<ApiListItemResponse>)

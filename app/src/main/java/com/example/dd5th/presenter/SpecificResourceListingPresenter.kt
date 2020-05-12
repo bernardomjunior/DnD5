@@ -3,12 +3,19 @@ package com.example.dd5th.presenter
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import com.example.dd5th.contract.SpecificResourceListingContract
 import com.example.dd5th.data.domain.ApiListItemResponse
 import com.example.dd5th.data.external.ApiRepository
+import com.example.dd5th.ui.activity.AbilityScoreActivity
 import com.example.dd5th.ui.activity.EquipmentActivity
 import com.example.dd5th.ui.activity.LanguagesActivity
+import com.example.dd5th.util.OPTION
+import com.example.dd5th.util.OPTION_VALUE
+import com.example.dd5th.util.EQUIPMENT
+import com.example.dd5th.util.LANGUAGES
+import com.example.dd5th.util.ABILITY_SCORES
+
+
 
 class SpecificResourceListingPresenter(
     private val view: SpecificResourceListingContract.View
@@ -17,12 +24,10 @@ class SpecificResourceListingPresenter(
     private val api: SpecificResourceListingContract.Api = ApiRepository()
 
     override fun getList(resourceName: String) {
-        Log.w("Specific listing", resourceName)
         api.listResourceItems(resourceName, this)
     }
 
     override fun onSuccess(list: ArrayList<ApiListItemResponse>) {
-        Log.w("Specific listing", "onSuccess")
         view.showList(list)
     }
 
@@ -36,40 +41,41 @@ class SpecificResourceListingPresenter(
 
     override fun getExtras(extras: Bundle?): String?{
         extras?.let {
-            if (it.containsKey("option")) {
-                view.setActionBarTitle(it.getString("option")!!)
+            it.getString(OPTION)?.let { option ->
+                view.setActionBarTitle(option)
             }
-            if (it.containsKey("optionValue")) {
-                return it.getString("optionValue")!!
+            it.getString(OPTION_VALUE)?.let { value ->
+                return value
             }
         }
         return null
     }
 
-    override fun getItemActivity(context: Context, resourceItem: String): Intent? {
-        return when(resourceItem){
-            "equipment" -> Intent(context, EquipmentActivity::class.java)
-            "languages" -> Intent(context, LanguagesActivity::class.java)
-//            "ability-scores" -> Intent(context, EquipmentActivity::class.java)
-//            "classes" -> Intent(context, EquipmentActivity::class.java)
-//            "conditions" -> Intent(context, EquipmentActivity::class.java)
-//            "damage-types" -> Intent(context, EquipmentActivity::class.java)
-//            "equipment-categories" -> Intent(context, EquipmentActivity::class.java)
-//            "features" -> Intent(context, EquipmentActivity::class.java)
-//            "magic-schools" -> Intent(context, EquipmentActivity::class.java)
-//            "monsters" -> Intent(context, EquipmentActivity::class.java)
-//            "proficiencies" -> Intent(context, EquipmentActivity::class.java)
-//            "races" -> Intent(context, EquipmentActivity::class.java)
-//            "skills" -> Intent(context, EquipmentActivity::class.java)
-//            "spellcasting" -> Intent(context, EquipmentActivity::class.java)
-//            "spells" -> Intent(context, EquipmentActivity::class.java)
-//            "starting-equipment" -> Intent(context, EquipmentActivity::class.java)
-//            "subclasses" -> Intent(context, EquipmentActivity::class.java)
-//            "subraces" -> Intent(context, EquipmentActivity::class.java)
-//            "traits" -> Intent(context, EquipmentActivity::class.java)
-//            "weapon-properties" -> Intent(context, EquipmentActivity::class.java)
+    override fun getItemActivity(context: Context, resourceItem: String, itemResponse: String): Intent? {
+        val intent =  when(resourceItem){
+            EQUIPMENT -> Intent(context, EquipmentActivity::class.java)
+            LANGUAGES -> Intent(context, LanguagesActivity::class.java)
+            ABILITY_SCORES-> Intent(context, AbilityScoreActivity::class.java)
+//            CLASSES -> Intent(context, EquipmentActivity::class.java)
+//            CONDITIONS -> Intent(context, EquipmentActivity::class.java)
+//            DAMAGE_TYPES -> Intent(context, EquipmentActivity::class.java)
+//            EQUIPMENT_CATEGORIES -> Intent(context, EquipmentActivity::class.java)
+//            FEATURES -> Intent(context, EquipmentActivity::class.java)
+//            MAGIC_SCHOOLS -> Intent(context, EquipmentActivity::class.java)
+//            MONSTERS -> Intent(context, EquipmentActivity::class.java)
+//            PROFICIENCIES -> Intent(context, EquipmentActivity::class.java)
+//            RACES -> Intent(context, EquipmentActivity::class.java)
+//            SKILLS -> Intent(context, EquipmentActivity::class.java)
+//            SPELLCASTING -> Intent(context, EquipmentActivity::class.java)
+//            SPELLS -> Intent(context, EquipmentActivity::class.java)
+//            STARTING_EQUIPMENT -> Intent(context, EquipmentActivity::class.java)
+//            SUBCLASSES -> Intent(context, EquipmentActivity::class.java)
+//            SUBRACES -> Intent(context, EquipmentActivity::class.java)
+//            TRAITS -> Intent(context, EquipmentActivity::class.java)
+//            WEAPON_PROPERTIES -> Intent(context, EquipmentActivity::class.java)
             else -> null
         }
+        return intent?.putExtra(resourceItem, itemResponse)
     }
 
 }

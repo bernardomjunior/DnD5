@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.example.dd5th.contract.EquipmentContract
 import com.example.dd5th.data.domain.Equipment
 import com.example.dd5th.data.external.ApiRepository
+import com.example.dd5th.util.EQUIPMENT
 
 class EquipmentPresenter(
     private val view: EquipmentContract.View
@@ -13,7 +14,7 @@ class EquipmentPresenter(
 
     override fun getEquipmentIfExtra(extras: Bundle?) {
         extras?.let { e ->
-            e.getString("equipment")?.let {
+            e.getString(EQUIPMENT)?.let {
                 api.getEquipment(it, this)
             }
         }

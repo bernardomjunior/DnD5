@@ -49,9 +49,8 @@ class SpecificResourceListActivity: AppCompatActivity(), SpecificResourceListing
     }
 
     private fun startItemActivity(resourceString: String, itemResponse: String){
-        val newIntent = presenter.getItemActivity(this, resourceString)
+        val newIntent = presenter.getItemActivity(this, resourceString, itemResponse)
         newIntent?.let {
-            it.putExtra(resourceString, itemResponse)
             startActivity(it)
         }
     }

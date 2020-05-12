@@ -4,6 +4,7 @@ import android.os.Bundle
 import com.example.dd5th.contract.AbilityScoreContract
 import com.example.dd5th.data.domain.AbilityScore
 import com.example.dd5th.data.external.ApiRepository
+import com.example.dd5th.util.ABILITY_SCORES
 
 class AbilityScorePresenter(
     private val view: AbilityScoreContract.View
@@ -13,7 +14,7 @@ class AbilityScorePresenter(
 
     override fun getAbilityScore(extras: Bundle?) {
         extras?.let { e ->
-            e.getString("ability-scores")?.let {
+            e.getString(ABILITY_SCORES)?.let {
                 api.getAbilityScore(it, this)
             }
         }

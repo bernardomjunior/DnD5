@@ -8,7 +8,10 @@ import com.example.dd5th.R
 import com.example.dd5th.contract.GenericResourceListingContract
 import com.example.dd5th.presenter.GenericResourceListingPresenter
 import com.example.dd5th.ui.adapter.GenericResourceListAdapter
+import com.example.dd5th.util.OPTION
+import com.example.dd5th.util.OPTION_VALUE
 import kotlinx.android.synthetic.main.generic_listing.list_app_options
+
 
 class GenericResourceListActivity : AppCompatActivity(), GenericResourceListingContract.View {
 
@@ -27,8 +30,8 @@ class GenericResourceListActivity : AppCompatActivity(), GenericResourceListingC
         list_app_options.adapter =
             GenericResourceListAdapter(options, this) { option: String, optionValue: String ->
                 val intent = Intent(applicationContext, SpecificResourceListActivity::class.java)
-                intent.putExtra("option", option)
-                intent.putExtra("optionValue", optionValue)
+                intent.putExtra(OPTION, option)
+                intent.putExtra(OPTION_VALUE, optionValue)
                 startActivity(intent)
             }
     }
