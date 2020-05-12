@@ -1,7 +1,10 @@
 package com.example.dd5th.presenter
 
+import android.content.Intent
 import com.example.dd5th.contract.GenericResourceListingContract
 import com.example.dd5th.data.external.ApiRepository
+import com.example.dd5th.util.OPTION
+import com.example.dd5th.util.OPTION_VALUE
 
 class GenericResourceListingPresenter(
     private val view: GenericResourceListingContract.View
@@ -42,6 +45,12 @@ class GenericResourceListingPresenter(
             newStr += it[0].toUpperCase() + it.slice(1 until it.length) + " "
         }
         return newStr
+    }
+
+    override fun addExtras(intent: Intent, option: String, optionValue: String): Intent {
+        intent.putExtra(OPTION, option)
+        intent.putExtra(OPTION_VALUE, optionValue)
+        return intent
     }
 
 }

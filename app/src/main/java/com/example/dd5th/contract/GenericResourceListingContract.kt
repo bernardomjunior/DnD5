@@ -1,5 +1,7 @@
 package com.example.dd5th.contract
 
+import android.content.Intent
+
 interface GenericResourceListingContract {
 
     interface View{
@@ -9,6 +11,11 @@ interface GenericResourceListingContract {
 
     interface Presenter {
         fun listOptions()
+        fun addExtras(
+            intent: Intent,
+            option: String,
+            optionValue: String
+        ): Intent
     }
 
     interface Callback {

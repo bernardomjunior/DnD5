@@ -29,12 +29,15 @@ class GenericResourceListActivity : AppCompatActivity(), GenericResourceListingC
         list_app_options.layoutManager = LinearLayoutManager(this)
         list_app_options.adapter =
             GenericResourceListAdapter(options, this) { option: String, optionValue: String ->
-                val intent = Intent(applicationContext, SpecificResourceListActivity::class.java)
-                intent.putExtra(OPTION, option)
-                intent.putExtra(OPTION_VALUE, optionValue)
+                val intent = presenter.addExtras(
+                    Intent(applicationContext, SpecificResourceListActivity::class.java),
+                    option,
+                    optionValue)
                 startActivity(intent)
             }
     }
+
+
 
     override fun listOptions(dictionary: HashMap<String, String>) {
         options.clear()
