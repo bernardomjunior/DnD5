@@ -5,9 +5,13 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.dd5th.R
 import com.example.dd5th.contract.EquipmentContract
 import com.example.dd5th.data.domain.Equipment
-import com.example.dd5th.data.external.ApiRepository
 import com.example.dd5th.presenter.EquipmentPresenter
-import kotlinx.android.synthetic.main.activity_equipment.*
+import kotlinx.android.synthetic.main.activity_equipment.txt_equipment_name
+import kotlinx.android.synthetic.main.activity_equipment.txt_equipment_category
+import kotlinx.android.synthetic.main.activity_equipment.txt_equipment_gear_category
+import kotlinx.android.synthetic.main.activity_equipment.txt_equipment_cost_ammount
+import kotlinx.android.synthetic.main.activity_equipment.txt_equipment_cost_unit
+import kotlinx.android.synthetic.main.activity_equipment.txt_equipment_weight
 
 class EquipmentActivity: AppCompatActivity(), EquipmentContract.View {
 
