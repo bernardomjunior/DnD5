@@ -5,10 +5,12 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.dd5th.R
 import com.example.dd5th.contract.LanguageContract
 import com.example.dd5th.data.domain.Language
-import com.example.dd5th.data.external.ApiRepository
 import com.example.dd5th.presenter.LanguagePresenter
 import com.example.dd5th.ui.adapter.TypicalSpeakersListAdapter
-import kotlinx.android.synthetic.main.activity_languages.*
+import kotlinx.android.synthetic.main.activity_languages.txt_language_name
+import kotlinx.android.synthetic.main.activity_languages.txt_language_script
+import kotlinx.android.synthetic.main.activity_languages.txt_language_type
+import kotlinx.android.synthetic.main.activity_languages.listview_language_typical_speakers
 
 class LanguagesActivity : AppCompatActivity(), LanguageContract.View {
 
@@ -18,10 +20,7 @@ class LanguagesActivity : AppCompatActivity(), LanguageContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_languages)
-        val languageIndex = intent.extras?.getString("languages")
-        languageIndex?.let {
-            presenter.getLanguage(it)
-        }
+        presenter.getLanguageIfExtra(intent.extras)
     }
 
     override fun onLanguageResult(language: Language) {
