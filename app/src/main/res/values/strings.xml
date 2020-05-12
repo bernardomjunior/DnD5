@@ -1,3 +1,20 @@
 <resources>
     <string name="app_name">D&amp;D5th</string>
+
+    <!--  begin region equipment  -->
+    <string name="equipment_category">Equipment Category</string>
+    <string name="gear_category">Gear Category</string>
+    <string name="item_cost">Cost</string>
+    <string name="item_weight">Weight</string>
+    <!--  end region equipment  -->
+
+    <!--  begin region language  -->
+    <string name="language_type">Type</string>
+    <string name="language_script">Script</string>
+    <string name="language_typical_speakers">Typical Speakers</string>
+    <!--  end region language  -->
+
+
+
+
 </resources>

@@ -9,12 +9,12 @@
         android:id="@+id/textview_item_options"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_margin="16dp"
+        android:layout_margin="@dimen/big_list_item_margin"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:textSize="24sp"
+        android:textSize="@dimen/big_list_item_txt_size"
         android:textStyle="bold"
         tools:text="Monster" />
 
