@@ -14,7 +14,9 @@
     <string name="language_typical_speakers">Typical Speakers</string>
     <!--  end region language  -->
 
-
-
+    <!--  begin region ability scores  -->
+    <string name="ability_score_description">Description</string>
+    <string name="ability_score_skills">Skills</string>
+    <!--  end region ability scores  -->
 
 </resources>
