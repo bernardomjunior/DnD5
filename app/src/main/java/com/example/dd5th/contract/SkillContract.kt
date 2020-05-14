@@ -20,7 +20,7 @@ interface SkillContract {
     }
 
     interface Api{
-        fun getSkill(skillName: String)
+        fun getSkill(skillName: String, callback: Callback)
     }
 
 }

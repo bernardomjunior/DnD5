@@ -21,7 +21,8 @@ class ApiRepository : GenericResourceListingContract.Api,
     SpecificResourceListingContract.Api,
     EquipmentContract.Api,
     LanguageContract.Api,
-    AbilityScoreContract.Api{
+    AbilityScoreContract.Api,
+    SkillContract.Api {
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -122,4 +123,20 @@ class ApiRepository : GenericResourceListingContract.Api,
             })
     }
 
+    override fun getSkill(skillName: String, callback: SkillContract.Callback) {
+        retrofit.getSkill(skillName)
+            .enqueue(object : Callback<Skill> {
+                override fun onResponse(call: Call<Skill>, response: Response<Skill>) {
+                    if (response.isSuccessful) {
+                        callback.onSuccess(response.body() as Skill)
+                    } else {
+                        callback.onError()
+                    }
+                }
+
+                override fun onFailure(call: Call<Skill>, t: Throwable) {
+                    callback.onFailure()
+                }
+            })
+    }
 }
