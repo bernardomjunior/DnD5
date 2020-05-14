@@ -9,6 +9,7 @@ import com.example.dd5th.data.external.ApiRepository
 import com.example.dd5th.ui.activity.AbilityScoreActivity
 import com.example.dd5th.ui.activity.EquipmentActivity
 import com.example.dd5th.ui.activity.LanguagesActivity
+import com.example.dd5th.ui.activity.SkillActivity
 
 
 class SpecificResourceListingPresenter(
@@ -50,6 +51,7 @@ class SpecificResourceListingPresenter(
             EQUIPMENT -> Intent(context, EquipmentActivity::class.java)
             LANGUAGES -> Intent(context, LanguagesActivity::class.java)
             ABILITY_SCORES -> Intent(context, AbilityScoreActivity::class.java)
+            SKILLS -> Intent(context, SkillActivity::class.java)
 //            CLASSES -> Intent(context, EquipmentActivity::class.java)
 //            CONDITIONS -> Intent(context, EquipmentActivity::class.java)
 //            DAMAGE_TYPES -> Intent(context, EquipmentActivity::class.java)
@@ -59,7 +61,6 @@ class SpecificResourceListingPresenter(
 //            MONSTERS -> Intent(context, EquipmentActivity::class.java)
 //            PROFICIENCIES -> Intent(context, EquipmentActivity::class.java)
 //            RACES -> Intent(context, EquipmentActivity::class.java)
-//            SKILLS -> Intent(context, EquipmentActivity::class.java)
 //            SPELLCASTING -> Intent(context, EquipmentActivity::class.java)
 //            SPELLS -> Intent(context, EquipmentActivity::class.java)
 //            STARTING_EQUIPMENT -> Intent(context, EquipmentActivity::class.java)
