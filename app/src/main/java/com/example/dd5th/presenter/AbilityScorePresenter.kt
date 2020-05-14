@@ -5,7 +5,6 @@ import com.example.dd5th.contract.AbilityScoreContract
 import com.example.dd5th.data.domain.AbilityScore
 import com.example.dd5th.data.domain.ApiListItemResponse
 import com.example.dd5th.data.external.ApiRepository
-import com.example.dd5th.util.ABILITY_SCORES
 
 class AbilityScorePresenter(
     private val view: AbilityScoreContract.View

@@ -9,12 +9,6 @@ import com.example.dd5th.data.external.ApiRepository
 import com.example.dd5th.ui.activity.AbilityScoreActivity
 import com.example.dd5th.ui.activity.EquipmentActivity
 import com.example.dd5th.ui.activity.LanguagesActivity
-import com.example.dd5th.util.OPTION
-import com.example.dd5th.util.OPTION_VALUE
-import com.example.dd5th.util.EQUIPMENT
-import com.example.dd5th.util.LANGUAGES
-import com.example.dd5th.util.ABILITY_SCORES
-
 
 
 class SpecificResourceListingPresenter(
@@ -55,7 +49,7 @@ class SpecificResourceListingPresenter(
         val intent =  when(resourceItem){
             EQUIPMENT -> Intent(context, EquipmentActivity::class.java)
             LANGUAGES -> Intent(context, LanguagesActivity::class.java)
-            ABILITY_SCORES-> Intent(context, AbilityScoreActivity::class.java)
+            ABILITY_SCORES -> Intent(context, AbilityScoreActivity::class.java)
 //            CLASSES -> Intent(context, EquipmentActivity::class.java)
 //            CONDITIONS -> Intent(context, EquipmentActivity::class.java)
 //            DAMAGE_TYPES -> Intent(context, EquipmentActivity::class.java)

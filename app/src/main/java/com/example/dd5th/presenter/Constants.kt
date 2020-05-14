@@ -1,4 +1,4 @@
-package com.example.dd5th.util
+package com.example.dd5th.presenter
 
 const val OPTION = "option"
 const val OPTION_VALUE = "optionValue"
