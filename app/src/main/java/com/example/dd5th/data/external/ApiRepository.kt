@@ -1,6 +1,5 @@
 package com.example.dd5th.data.external
 
-import android.util.Log
 import com.example.dd5th.BuildConfig.BASE_URL
 import com.example.dd5th.contract.GenericResourceListingContract
 import com.example.dd5th.contract.SpecificResourceListingContract
@@ -63,7 +62,6 @@ class ApiRepository : GenericResourceListingContract.Api,
                     if (response.isSuccessful) {
                         val apiList = response.body() as ApiListResponse
                         callback.onSuccess(apiList.results)
-                        Log.w("Specific listing", resourceName + " 2")
 
                     }
                 }
