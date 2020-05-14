@@ -6,6 +6,12 @@ import android.os.Bundle
 import com.example.dd5th.contract.SpecificResourceListingContract
 import com.example.dd5th.data.domain.ApiListItemResponse
 import com.example.dd5th.data.external.ApiRepository
+import com.example.dd5th.presenter.Constants.Companion.ABILITY_SCORES
+import com.example.dd5th.presenter.Constants.Companion.EQUIPMENT
+import com.example.dd5th.presenter.Constants.Companion.LANGUAGES
+import com.example.dd5th.presenter.Constants.Companion.OPTION
+import com.example.dd5th.presenter.Constants.Companion.OPTION_VALUE
+import com.example.dd5th.presenter.Constants.Companion.SKILLS
 import com.example.dd5th.ui.activity.AbilityScoreActivity
 import com.example.dd5th.ui.activity.EquipmentActivity
 import com.example.dd5th.ui.activity.LanguagesActivity
