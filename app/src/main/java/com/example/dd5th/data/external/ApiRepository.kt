@@ -1,13 +1,15 @@
 package com.example.dd5th.data.external
 
 import com.example.dd5th.BuildConfig.BASE_URL
-import com.example.dd5th.contract.GenericResourceListingContract
-import com.example.dd5th.contract.SpecificResourceListingContract
 import com.example.dd5th.contract.EquipmentContract
+import com.example.dd5th.contract.GenericResourceListingContract
 import com.example.dd5th.contract.LanguageContract
+import com.example.dd5th.contract.SpecificResourceListingContract
 import com.example.dd5th.contract.AbilityScoreContract
-import com.example.dd5th.data.domain.AbilityScore
+import com.example.dd5th.contract.SkillContract
 import com.example.dd5th.data.domain.ApiListResponse
+import com.example.dd5th.data.domain.AbilityScore
+import com.example.dd5th.data.domain.Skill
 import com.example.dd5th.data.domain.Equipment
 import com.example.dd5th.data.domain.Language
 import com.google.gson.GsonBuilder
@@ -43,17 +45,22 @@ class ApiRepository : GenericResourceListingContract.Api,
                 ) {
                     if (response.isSuccessful) {
                         callback.onSuccess(response.body() as HashMap<String, String>)
+                    } else {
+                        callback.onError()
                     }
                 }
 
                 override fun onFailure(call: Call<HashMap<String, String>>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    callback.onFailure()
                 }
             }
             )
     }
 
-    override fun listResourceItems(resourceName: String, callback: SpecificResourceListingContract.Callback) {
+    override fun listResourceItems(
+        resourceName: String,
+        callback: SpecificResourceListingContract.Callback
+    ) {
         retrofit.listResourceItems(resourceName)
             .enqueue(object : Callback<ApiListResponse> {
                 override fun onResponse(
@@ -63,12 +70,13 @@ class ApiRepository : GenericResourceListingContract.Api,
                     if (response.isSuccessful) {
                         val apiList = response.body() as ApiListResponse
                         callback.onSuccess(apiList.results)
-
+                    } else {
+                        callback.onError()
                     }
                 }
 
                 override fun onFailure(call: Call<ApiListResponse>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    callback.onFailure()
                 }
             }
 
@@ -77,48 +85,54 @@ class ApiRepository : GenericResourceListingContract.Api,
 
     override fun getAbilityScore(abilityName: String, callback: AbilityScoreContract.Callback) {
         retrofit.getAbilityScore(abilityName)
-            .enqueue(object: Callback<AbilityScore>{
+            .enqueue(object : Callback<AbilityScore> {
                 override fun onResponse(
                     call: Call<AbilityScore>,
                     response: Response<AbilityScore>
                 ) {
-                    if(response.isSuccessful){
+                    if (response.isSuccessful) {
                         callback.onSuccess(response.body() as AbilityScore)
+                    } else {
+                        callback.onError()
                     }
                 }
 
                 override fun onFailure(call: Call<AbilityScore>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    callback.onFailure()
                 }
             })
     }
 
-    override fun getEquipment(equipmentName: String, callback: EquipmentContract.Callback){
+    override fun getEquipment(equipmentName: String, callback: EquipmentContract.Callback) {
         retrofit.getEquipment(equipmentName)
-            .enqueue(object : Callback<Equipment>{
+            .enqueue(object : Callback<Equipment> {
                 override fun onResponse(call: Call<Equipment>, response: Response<Equipment>) {
-                    if (response.isSuccessful){
+                    if (response.isSuccessful) {
                         callback.onSuccess(response.body() as Equipment)
+                    } else {
+                        callback.onError()
                     }
                 }
 
                 override fun onFailure(call: Call<Equipment>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    callback.onFailure()
                 }
             })
     }
 
-    override fun getLanguage(languageName: String, callback: LanguageContract.Callback){
+    override fun getLanguage(languageName: String, callback: LanguageContract.Callback) {
         retrofit.getLanguage(languageName)
-            .enqueue(object : Callback<Language>{
+            .enqueue(object : Callback<Language> {
                 override fun onResponse(call: Call<Language>, response: Response<Language>) {
-                    if (response.isSuccessful){
+                    if (response.isSuccessful) {
                         callback.onSuccess(response.body() as Language)
+                    } else {
+                        callback.onError()
                     }
                 }
 
                 override fun onFailure(call: Call<Language>, t: Throwable) {
-                    TODO("Not yet implemented")
+                    callback.onFailure()
                 }
             })
     }
