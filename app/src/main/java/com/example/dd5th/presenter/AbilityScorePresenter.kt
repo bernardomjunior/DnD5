@@ -3,6 +3,7 @@ package com.example.dd5th.presenter
 import android.os.Bundle
 import com.example.dd5th.contract.AbilityScoreContract
 import com.example.dd5th.data.domain.AbilityScore
+import com.example.dd5th.data.domain.ApiListItemResponse
 import com.example.dd5th.data.external.ApiRepository
 import com.example.dd5th.util.ABILITY_SCORES
 
@@ -21,7 +22,18 @@ class AbilityScorePresenter(
     }
 
     override fun onSuccess(abilityScore: AbilityScore) {
-        view.showAbilityScore(abilityScore)
+        val newAbilityScore = AbilityScore(
+            abilityScore.name,
+            abilityScore.fullName,
+            abilityScore.description,
+        abilityScore.skills.map { ApiListItemResponse(
+            getIndexFromUrl(it.url), it.name, it.url
+        ) })
+        view.showAbilityScore(newAbilityScore)
+    }
+
+    private fun getIndexFromUrl(url: String): String{
+        return url.split("/").last()
     }
 
     override fun onError() {
