@@ -9,7 +9,7 @@ class EquipmentPresenter(
     private val view: EquipmentContract.View
 ) : EquipmentContract.Presenter, EquipmentContract.Callback {
 
-    private val api: EquipmentContract.Api = ApiRepository()
+    private val api: EquipmentContract.Api = ApiRepository
 
     override fun getEquipmentIfExtra(extras: Bundle?) {
         extras?.let { e ->

@@ -9,7 +9,7 @@ class LanguagePresenter (
     private val view: LanguageContract.View
 ): LanguageContract.Presenter, LanguageContract.Callback {
 
-    private val api: LanguageContract.Api = ApiRepository()
+    private val api: LanguageContract.Api = ApiRepository
 
     override fun getLanguageIfExtra(extras: Bundle?) {
         extras?.let { e ->

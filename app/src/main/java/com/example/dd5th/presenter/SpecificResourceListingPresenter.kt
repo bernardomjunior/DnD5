@@ -15,7 +15,7 @@ class SpecificResourceListingPresenter(
     private val view: SpecificResourceListingContract.View
 ): SpecificResourceListingContract.Presenter, SpecificResourceListingContract.Callback {
 
-    private val api: SpecificResourceListingContract.Api = ApiRepository()
+    private val api: SpecificResourceListingContract.Api = ApiRepository
 
     override fun getList(resourceName: String) {
         api.listResourceItems(resourceName, this)

@@ -19,7 +19,7 @@ import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-class ApiRepository : GenericResourceListingContract.Api,
+object ApiRepository : GenericResourceListingContract.Api,
     SpecificResourceListingContract.Api,
     EquipmentContract.Api,
     LanguageContract.Api,

@@ -10,7 +10,7 @@ class AbilityScorePresenter(
     private val view: AbilityScoreContract.View
 ): AbilityScoreContract.Presenter, AbilityScoreContract.Callback {
 
-    private val api: AbilityScoreContract.Api = ApiRepository()
+    private val api: AbilityScoreContract.Api = ApiRepository
 
     override fun getAbilityScore(extras: Bundle?) {
         extras?.let { e ->

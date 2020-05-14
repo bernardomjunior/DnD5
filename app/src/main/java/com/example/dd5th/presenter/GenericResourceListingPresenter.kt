@@ -8,7 +8,7 @@ class GenericResourceListingPresenter(
     private val view: GenericResourceListingContract.View
 ): GenericResourceListingContract.Presenter, GenericResourceListingContract.Callback {
 
-    private val api: GenericResourceListingContract.Api = ApiRepository()
+    private val api: GenericResourceListingContract.Api = ApiRepository
 
     override fun listOptions() {
         api.listApiOptions(this)
