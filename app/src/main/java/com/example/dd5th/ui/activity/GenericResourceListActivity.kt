@@ -8,8 +8,6 @@ import com.example.dd5th.R
 import com.example.dd5th.contract.GenericResourceListingContract
 import com.example.dd5th.presenter.GenericResourceListingPresenter
 import com.example.dd5th.ui.adapter.GenericResourceListAdapter
-import com.example.dd5th.util.OPTION
-import com.example.dd5th.util.OPTION_VALUE
 import kotlinx.android.synthetic.main.generic_listing.list_app_options
 
 
