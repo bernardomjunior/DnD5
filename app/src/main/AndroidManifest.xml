@@ -23,6 +23,7 @@
         <activity android:name=".ui.activity.EquipmentActivity" />
         <activity android:name=".ui.activity.LanguagesActivity" />
         <activity android:name=".ui.activity.AbilityScoreActivity" />
+        <activity android:name=".ui.activity.SkillActivity" />
 
     </application>
 </manifest>
