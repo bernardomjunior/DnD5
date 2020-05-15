@@ -46,7 +46,7 @@ interface ApiService {
         @Path("skill") skill: String
     ): Call<Skill>
 
-    @GET("/api/skills/{damageName}")
+    @GET("/api/damage-types/{damageName}")
     fun getDamageType(
         @Path("damageName") damageName: String
     ): Call<DamageType>
