@@ -24,6 +24,7 @@
         <activity android:name=".ui.activity.LanguagesActivity" />
         <activity android:name=".ui.activity.AbilityScoreActivity" />
         <activity android:name=".ui.activity.SkillActivity" />
+        <activity android:name=".ui.activity.DamageTypeActivity" />
 
     </application>
 </manifest>

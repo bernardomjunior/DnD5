@@ -24,4 +24,8 @@
     <string name="skill_related_ability">Ability Related</string>
     <!--  end region skill  -->
 
+    <!--  begin region damage type-->
+    <string name="damage_type_description">Description</string>
+    <!--  end region damage type-->
+
 </resources>

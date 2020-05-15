@@ -4,12 +4,13 @@ import com.example.dd5th.data.domain.DamageType
 
 interface DamageTypeContract {
 
-    interface View{
+    interface View {
         fun onDamageTypeResult(damageType: DamageType)
     }
 
-    interface Presenter{
+    interface Presenter {
         fun getDamageType(damageName: String?)
+        fun listToText(description: List<String>): String
     }
 
     interface Callback {

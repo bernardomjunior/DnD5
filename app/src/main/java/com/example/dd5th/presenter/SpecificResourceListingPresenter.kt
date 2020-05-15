@@ -7,10 +7,12 @@ import com.example.dd5th.contract.SpecificResourceListingContract
 import com.example.dd5th.data.domain.ApiListItemResponse
 import com.example.dd5th.data.external.ApiRepository
 import com.example.dd5th.ui.activity.AbilityScoreActivity
+import com.example.dd5th.ui.activity.DamageTypeActivity
 import com.example.dd5th.ui.activity.EquipmentActivity
 import com.example.dd5th.ui.activity.LanguagesActivity
 import com.example.dd5th.ui.activity.SkillActivity
 import com.example.dd5th.util.ActivityExtrasConstants.Companion.ABILITY_SCORES
+import com.example.dd5th.util.ActivityExtrasConstants.Companion.DAMAGE_TYPES
 import com.example.dd5th.util.ActivityExtrasConstants.Companion.EQUIPMENT
 import com.example.dd5th.util.ActivityExtrasConstants.Companion.LANGUAGES
 import com.example.dd5th.util.ActivityExtrasConstants.Companion.OPTION
@@ -20,7 +22,7 @@ import com.example.dd5th.util.ActivityExtrasConstants.Companion.SKILLS
 
 class SpecificResourceListingPresenter(
     private val view: SpecificResourceListingContract.View
-): SpecificResourceListingContract.Presenter, SpecificResourceListingContract.Callback {
+) : SpecificResourceListingContract.Presenter, SpecificResourceListingContract.Callback {
 
     private val api: SpecificResourceListingContract.Api = ApiRepository
 
@@ -40,7 +42,7 @@ class SpecificResourceListingPresenter(
         TODO("Not yet implemented")
     }
 
-    override fun getExtras(extras: Bundle?): String?{
+    override fun getExtras(extras: Bundle?): String? {
         extras?.let {
             it.getString(OPTION)?.let { option ->
                 view.setActionBarTitle(option)
@@ -52,15 +54,19 @@ class SpecificResourceListingPresenter(
         return null
     }
 
-    override fun getItemActivity(context: Context, resourceItem: String, itemResponse: String): Intent? {
-        val intent =  when(resourceItem){
+    override fun getItemActivity(
+        context: Context,
+        resourceItem: String,
+        itemResponse: String
+    ): Intent? {
+        val intent = when (resourceItem) {
             EQUIPMENT -> Intent(context, EquipmentActivity::class.java)
             LANGUAGES -> Intent(context, LanguagesActivity::class.java)
             ABILITY_SCORES -> Intent(context, AbilityScoreActivity::class.java)
             SKILLS -> Intent(context, SkillActivity::class.java)
+            DAMAGE_TYPES -> Intent(context, DamageTypeActivity::class.java)
 //            CLASSES -> Intent(context, EquipmentActivity::class.java)
 //            CONDITIONS -> Intent(context, EquipmentActivity::class.java)
-//            DAMAGE_TYPES -> Intent(context, EquipmentActivity::class.java)
 //            EQUIPMENT_CATEGORIES -> Intent(context, EquipmentActivity::class.java)
 //            FEATURES -> Intent(context, EquipmentActivity::class.java)
 //            MAGIC_SCHOOLS -> Intent(context, EquipmentActivity::class.java)

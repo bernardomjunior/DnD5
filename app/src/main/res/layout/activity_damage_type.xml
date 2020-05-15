@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Title"
+        android:id="@+id/txt_damage_type_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tool:text="Acid"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/FirstCategory"
+        android:id="@+id/damage_type_description"
+        app:layout_constraintTop_toBottomOf="@id/txt_damage_type_name"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/damage_type_description"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CategoryContent"
+        android:id="@+id/txt_damage_type_description"
+        app:layout_constraintStart_toStartOf="@id/damage_type_description"
+        app:layout_constraintTop_toBottomOf="@id/damage_type_description"
+        tool:text="The corrosive spray of a black dragon's breath and the dissolving enzymes secreted by a black pudding deal acid damage."/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

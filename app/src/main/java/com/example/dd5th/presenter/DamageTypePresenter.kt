@@ -6,7 +6,7 @@ import com.example.dd5th.data.external.ApiRepository
 
 class DamageTypePresenter(
     private val view: DamageTypeContract.View
-): DamageTypeContract.Callback, DamageTypeContract.Presenter {
+) : DamageTypeContract.Callback, DamageTypeContract.Presenter {
 
     private val api: DamageTypeContract.Api = ApiRepository
 
@@ -28,4 +28,5 @@ class DamageTypePresenter(
         TODO("Not yet implemented")
     }
 
+    override fun listToText(description: List<String>) = description.joinToString("\n\n")
 }
