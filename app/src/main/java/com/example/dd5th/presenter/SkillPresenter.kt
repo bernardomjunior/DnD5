@@ -12,11 +12,9 @@ class SkillPresenter(
 
     private val api: SkillContract.Api = ApiRepository
 
-    override fun getSkillIfExtra(extras: Bundle?) {
-        extras?.let { e ->
-            e.getString(SKILLS)?.let {
-                api.getSkill(it, this)
-            }
+    override fun getSkill(skillName: String?) {
+        skillName?.let {
+            api.getSkill(it, this)
         }
     }
 

@@ -12,11 +12,9 @@ class LanguagePresenter (
 
     private val api: LanguageContract.Api = ApiRepository
 
-    override fun getLanguageIfExtra(extras: Bundle?) {
-        extras?.let { e ->
-            e.getString(LANGUAGES)?.let {
-                api.getLanguage(it, this)
-            }
+    override fun getLanguage(languageName: String?) {
+        languageName?.let {
+            api.getLanguage(it, this)
         }
     }
 

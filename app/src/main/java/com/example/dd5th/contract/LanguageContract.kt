@@ -1,6 +1,5 @@
 package com.example.dd5th.contract
 
-import android.os.Bundle
 import com.example.dd5th.data.domain.Language
 
 interface LanguageContract {
@@ -10,7 +9,7 @@ interface LanguageContract {
     }
 
     interface Presenter {
-        fun getLanguageIfExtra(extras: Bundle?)
+        fun getLanguage(languageName: String?)
     }
 
     interface Callback {

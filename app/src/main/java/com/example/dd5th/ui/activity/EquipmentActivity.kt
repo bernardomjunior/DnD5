@@ -6,6 +6,7 @@ import com.example.dd5th.R
 import com.example.dd5th.contract.EquipmentContract
 import com.example.dd5th.data.domain.Equipment
 import com.example.dd5th.presenter.EquipmentPresenter
+import com.example.dd5th.util.ActivityExtrasConstants.Companion.EQUIPMENT
 import kotlinx.android.synthetic.main.activity_equipment.txt_equipment_name
 import kotlinx.android.synthetic.main.activity_equipment.txt_equipment_category
 import kotlinx.android.synthetic.main.activity_equipment.txt_equipment_gear_category
@@ -21,7 +22,7 @@ class EquipmentActivity: AppCompatActivity(), EquipmentContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_equipment)
-        presenter.getEquipmentIfExtra(intent.extras)
+        presenter.getEquipment(intent.extras?.getString(EQUIPMENT))
     }
 
     private fun fillFields() {

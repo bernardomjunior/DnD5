@@ -13,11 +13,9 @@ class EquipmentPresenter(
 
     private val api: EquipmentContract.Api = ApiRepository
 
-    override fun getEquipmentIfExtra(extras: Bundle?) {
-        extras?.let { e ->
-            e.getString(EQUIPMENT)?.let {
-                api.getEquipment(it, this)
-            }
+    override fun getEquipment(equipmentName: String?) {
+        equipmentName?.let {
+            api.getEquipment(it, this)
         }
     }
 

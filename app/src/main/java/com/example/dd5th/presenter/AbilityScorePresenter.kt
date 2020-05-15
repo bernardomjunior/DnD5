@@ -13,11 +13,9 @@ class AbilityScorePresenter(
 
     private val api: AbilityScoreContract.Api = ApiRepository
 
-    override fun getAbilityScore(extras: Bundle?) {
-        extras?.let { e ->
-            e.getString(ABILITY_SCORES)?.let {
-                api.getAbilityScore(it, this)
-            }
+    override fun getAbilityScore(abilityName: String?) {
+        abilityName?.let {
+            api.getAbilityScore(it, this)
         }
     }
 

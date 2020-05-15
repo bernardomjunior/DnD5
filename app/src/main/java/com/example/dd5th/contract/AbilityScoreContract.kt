@@ -1,6 +1,5 @@
 package com.example.dd5th.contract
 
-import android.os.Bundle
 import com.example.dd5th.data.domain.AbilityScore
 
 interface AbilityScoreContract {
@@ -10,7 +9,7 @@ interface AbilityScoreContract {
     }
 
     interface Presenter {
-        fun getAbilityScore(extras: Bundle?)
+        fun getAbilityScore(abilityName: String?)
     }
 
     interface Callback {

@@ -1,6 +1,5 @@
 package com.example.dd5th.contract
 
-import android.os.Bundle
 import com.example.dd5th.data.domain.Equipment
 
 interface EquipmentContract {
@@ -10,7 +9,7 @@ interface EquipmentContract {
     }
 
     interface Presenter {
-        fun getEquipmentIfExtra(extras: Bundle?)
+        fun getEquipment(equipmentName: String?)
     }
 
     interface Callback {

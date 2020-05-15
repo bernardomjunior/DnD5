@@ -8,6 +8,7 @@ import com.example.dd5th.contract.AbilityScoreContract
 import com.example.dd5th.data.domain.AbilityScore
 import com.example.dd5th.presenter.AbilityScorePresenter
 import com.example.dd5th.ui.adapter.AbilityScoreSkillListAdapter
+import com.example.dd5th.util.ActivityExtrasConstants.Companion.ABILITY_SCORES
 import kotlinx.android.synthetic.main.activity_ability_score.txt_ability_score_full_name
 import kotlinx.android.synthetic.main.activity_ability_score.txt_ability_score_description
 import kotlinx.android.synthetic.main.activity_ability_score.listview_ability_score_skills
@@ -20,7 +21,7 @@ class AbilityScoreActivity: AppCompatActivity(), AbilityScoreContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_ability_score)
-        presenter.getAbilityScore(intent.extras)
+        presenter.getAbilityScore(intent.extras?.getString(ABILITY_SCORES))
     }
 
     override fun showAbilityScore(abilityScore: AbilityScore) {
