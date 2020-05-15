@@ -5,11 +5,11 @@ import com.example.dd5th.contract.AbilityScoreContract
 import com.example.dd5th.data.domain.AbilityScore
 import com.example.dd5th.data.domain.ApiListItemResponse
 import com.example.dd5th.data.external.ApiRepository
-import com.example.dd5th.presenter.Constants.Companion.ABILITY_SCORES
+import com.example.dd5th.util.ActivityExtrasConstants.Companion.ABILITY_SCORES
 
 class AbilityScorePresenter(
     private val view: AbilityScoreContract.View
-): AbilityScoreContract.Presenter, AbilityScoreContract.Callback {
+) : AbilityScoreContract.Presenter, AbilityScoreContract.Callback {
 
     private val api: AbilityScoreContract.Api = ApiRepository
 
@@ -26,13 +26,15 @@ class AbilityScorePresenter(
             abilityScore.name,
             abilityScore.fullName,
             abilityScore.description,
-        abilityScore.skills.map { ApiListItemResponse(
-            getIndexFromUrl(it.url), it.name, it.url
-        ) })
+            abilityScore.skills.map {
+                ApiListItemResponse(
+                    getIndexFromUrl(it.url), it.name, it.url
+                )
+            })
         view.showAbilityScore(newAbilityScore)
     }
 
-    private fun getIndexFromUrl(url: String): String{
+    private fun getIndexFromUrl(url: String): String {
         return url.split("/").last()
     }
 

@@ -1,6 +1,7 @@
-package com.example.dd5th.presenter
+package com.example.dd5th.util
 
-class Constants{
+class ActivityExtrasConstants {
+
     companion object{
         const val OPTION = "option"
         const val OPTION_VALUE = "optionValue"
@@ -26,5 +27,5 @@ class Constants{
         const val TRAITS = "traits"
         const val WEAPON_PROPERTIES = "weapon-properties"
     }
-}
 
+}

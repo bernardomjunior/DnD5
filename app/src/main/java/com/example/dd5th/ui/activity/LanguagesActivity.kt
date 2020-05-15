@@ -17,10 +17,16 @@ class LanguagesActivity : AppCompatActivity(), LanguageContract.View {
     private lateinit var language: Language
     private val presenter: LanguageContract.Presenter = LanguagePresenter(this)
 
+    companion object{
+        const val LANGUAGE = ""
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_languages)
+        val languageName = intent.extras?.getString("as")
         presenter.getLanguageIfExtra(intent.extras)
+
     }
 
     override fun onLanguageResult(language: Language) {

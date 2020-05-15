@@ -3,8 +3,8 @@ package com.example.dd5th.presenter
 import android.content.Intent
 import com.example.dd5th.contract.GenericResourceListingContract
 import com.example.dd5th.data.external.ApiRepository
-import com.example.dd5th.presenter.Constants.Companion.OPTION
-import com.example.dd5th.presenter.Constants.Companion.OPTION_VALUE
+import com.example.dd5th.util.ActivityExtrasConstants.Companion.OPTION
+import com.example.dd5th.util.ActivityExtrasConstants.Companion.OPTION_VALUE
 
 class GenericResourceListingPresenter(
     private val view: GenericResourceListingContract.View

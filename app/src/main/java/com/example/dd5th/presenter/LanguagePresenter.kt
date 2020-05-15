@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.example.dd5th.contract.LanguageContract
 import com.example.dd5th.data.domain.Language
 import com.example.dd5th.data.external.ApiRepository
-import com.example.dd5th.presenter.Constants.Companion.LANGUAGES
+import com.example.dd5th.util.ActivityExtrasConstants.Companion.LANGUAGES
 
 class LanguagePresenter (
     private val view: LanguageContract.View

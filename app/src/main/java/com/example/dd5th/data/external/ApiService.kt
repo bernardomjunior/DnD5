@@ -1,6 +1,11 @@
 package com.example.dd5th.data.external
 
-import com.example.dd5th.data.domain.*
+import com.example.dd5th.data.domain.AbilityScore
+import com.example.dd5th.data.domain.ApiListResponse
+import com.example.dd5th.data.domain.Equipment
+import com.example.dd5th.data.domain.Language
+import com.example.dd5th.data.domain.Monster
+import com.example.dd5th.data.domain.Skill
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Path

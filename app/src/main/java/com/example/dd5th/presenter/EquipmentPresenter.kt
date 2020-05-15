@@ -4,7 +4,8 @@ import android.os.Bundle
 import com.example.dd5th.contract.EquipmentContract
 import com.example.dd5th.data.domain.Equipment
 import com.example.dd5th.data.external.ApiRepository
-import com.example.dd5th.presenter.Constants.Companion.EQUIPMENT
+import com.example.dd5th.util.ActivityExtrasConstants.Companion.EQUIPMENT
+
 
 class EquipmentPresenter(
     private val view: EquipmentContract.View

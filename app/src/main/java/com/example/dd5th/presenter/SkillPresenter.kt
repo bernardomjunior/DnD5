@@ -4,7 +4,7 @@ import android.os.Bundle
 import com.example.dd5th.contract.SkillContract
 import com.example.dd5th.data.domain.Skill
 import com.example.dd5th.data.external.ApiRepository
-import com.example.dd5th.presenter.Constants.Companion.SKILLS
+import com.example.dd5th.util.ActivityExtrasConstants.Companion.SKILLS
 
 class SkillPresenter(
     private val view: SkillContract.View
