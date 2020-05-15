@@ -2,6 +2,7 @@ package com.example.dd5th.data.external
 
 import com.example.dd5th.data.domain.AbilityScore
 import com.example.dd5th.data.domain.ApiListResponse
+import com.example.dd5th.data.domain.DamageType
 import com.example.dd5th.data.domain.Equipment
 import com.example.dd5th.data.domain.Language
 import com.example.dd5th.data.domain.Monster
@@ -44,5 +45,10 @@ interface ApiService {
     fun getSkill(
         @Path("skill") skill: String
     ): Call<Skill>
+
+    @GET("/api/skills/{damageName}")
+    fun getDamageType(
+        @Path("damageName") damageName: String
+    ): Call<DamageType>
 
 }

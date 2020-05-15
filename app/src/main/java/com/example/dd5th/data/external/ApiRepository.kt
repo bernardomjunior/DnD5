@@ -6,9 +6,11 @@ import com.example.dd5th.contract.GenericResourceListingContract
 import com.example.dd5th.contract.LanguageContract
 import com.example.dd5th.contract.SpecificResourceListingContract
 import com.example.dd5th.contract.AbilityScoreContract
+import com.example.dd5th.contract.DamageTypeContract
 import com.example.dd5th.contract.SkillContract
 import com.example.dd5th.data.domain.ApiListResponse
 import com.example.dd5th.data.domain.AbilityScore
+import com.example.dd5th.data.domain.DamageType
 import com.example.dd5th.data.domain.Skill
 import com.example.dd5th.data.domain.Equipment
 import com.example.dd5th.data.domain.Language
@@ -24,7 +26,8 @@ object ApiRepository : GenericResourceListingContract.Api,
     EquipmentContract.Api,
     LanguageContract.Api,
     AbilityScoreContract.Api,
-    SkillContract.Api {
+    SkillContract.Api,
+    DamageTypeContract.Api{
 
     private val retrofit = Retrofit.Builder()
         .baseUrl(BASE_URL)
@@ -149,6 +152,23 @@ object ApiRepository : GenericResourceListingContract.Api,
                 }
 
                 override fun onFailure(call: Call<Skill>, t: Throwable) {
+                    callback.onFailure()
+                }
+            })
+    }
+
+    override fun getDamageType(damageName: String, callback: DamageTypeContract.Callback) {
+        retrofit.getDamageType(damageName)
+            .enqueue(object : Callback<DamageType>{
+                override fun onResponse(call: Call<DamageType>, response: Response<DamageType>) {
+                    if (response.isSuccessful){
+                        callback.onSuccess(response.body() as DamageType)
+                    }else{
+                        callback.onError()
+                    }
+                }
+
+                override fun onFailure(call: Call<DamageType>, t: Throwable) {
                     callback.onFailure()
                 }
             })
