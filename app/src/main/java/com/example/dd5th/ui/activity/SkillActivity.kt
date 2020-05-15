@@ -7,10 +7,14 @@ import com.example.dd5th.contract.SkillContract
 import com.example.dd5th.data.domain.Skill
 import com.example.dd5th.presenter.SkillPresenter
 import com.example.dd5th.util.ActivityExtrasConstants.Companion.SKILLS
+import kotlinx.android.synthetic.main.activity_skill.txt_skill_description
+import kotlinx.android.synthetic.main.activity_skill.txt_skill_name
+import kotlinx.android.synthetic.main.activity_skill.txt_skill_related_abilitiy
 
-class SkillActivity: AppCompatActivity(), SkillContract.View{
+class SkillActivity : AppCompatActivity(), SkillContract.View {
 
     private val presenter: SkillContract.Presenter = SkillPresenter(this)
+    private lateinit var skill: Skill
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +23,14 @@ class SkillActivity: AppCompatActivity(), SkillContract.View{
     }
 
     override fun onSkillResult(skill: Skill) {
-        TODO("Not yet implemented")
+        this.skill = skill
+        fillFields()
     }
+
+    private fun fillFields() {
+        txt_skill_name.text = skill.name
+        txt_skill_description.text = presenter.listToText(skill.description)
+        txt_skill_related_abilitiy.text = skill.abilityScoreApiItem.name
+    }
+
 }

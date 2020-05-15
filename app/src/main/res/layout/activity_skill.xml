@@ -1,6 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tool="http://schemas.android.com/tools">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/Title"
+        android:id="@+id/txt_skill_name"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tool:text="Acrobatics"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/FirstCategory"
+        android:id="@+id/skill_description"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/txt_skill_name"
+        android:text="@string/skill_description"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CategoryContent"
+        android:id="@+id/txt_skill_description"
+        app:layout_constraintTop_toBottomOf="@id/skill_description"
+        app:layout_constraintStart_toStartOf="@id/skill_description"
+        tool:text="Your Dexterity (Acrobatics) check covers your attempt to stay on your feet in a tricky situation, such as when you're trying to run across a sheet of ice, balance on a tightrope, or stay upright on a rocking ship's deck. The GM might also call for a Dexterity (Acrobatics) check to see if you can perform acrobatic stunts, including dives, rolls, somersaults, and flips."/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/NotFirstCategory"
+        android:id="@+id/skill_related_ability"
+        app:layout_constraintTop_toBottomOf="@id/txt_skill_description"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/skill_related_ability"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/CategoryContent"
+        android:id="@+id/txt_skill_related_abilitiy"
+        app:layout_constraintStart_toStartOf="@id/skill_related_ability"
+        app:layout_constraintTop_toBottomOf="@id/skill_related_ability"
+        tool:text="DEX"/>
+
+
+
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

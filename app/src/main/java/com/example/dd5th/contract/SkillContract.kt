@@ -10,6 +10,7 @@ interface SkillContract {
 
     interface Presenter {
         fun getSkill(skillName: String?)
+        fun listToText(description: List<String>): String
     }
 
     interface Callback {

@@ -19,4 +19,9 @@
     <string name="ability_score_skills">Skills</string>
     <!--  end region ability scores  -->
 
+    <!--  begin region skill  -->
+    <string name="skill_description">Description</string>
+    <string name="skill_related_ability">Ability Related</string>
+    <!--  end region skill  -->
+
 </resources>

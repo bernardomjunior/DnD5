@@ -1,14 +1,13 @@
 package com.example.dd5th.presenter
 
-import android.os.Bundle
 import com.example.dd5th.contract.SkillContract
+import com.example.dd5th.data.domain.ApiListItemResponse
 import com.example.dd5th.data.domain.Skill
 import com.example.dd5th.data.external.ApiRepository
-import com.example.dd5th.util.ActivityExtrasConstants.Companion.SKILLS
 
 class SkillPresenter(
     private val view: SkillContract.View
-): SkillContract.Presenter, SkillContract.Callback {
+) : SkillContract.Presenter, SkillContract.Callback {
 
     private val api: SkillContract.Api = ApiRepository
 
@@ -19,7 +18,18 @@ class SkillPresenter(
     }
 
     override fun onSuccess(skill: Skill) {
-        view.onSkillResult(skill)
+        view.onSkillResult(
+            Skill(
+                index = skill.index,
+                name = skill.name,
+                description = skill.description,
+                abilityScoreApiItem = ApiListItemResponse(
+                    index = getIndexFromUrl(skill.abilityScoreApiItem.url),
+                    name = skill.abilityScoreApiItem.name,
+                    url = skill.abilityScoreApiItem.url
+                )
+            )
+        )
     }
 
     override fun onFailure() {
@@ -29,4 +39,11 @@ class SkillPresenter(
     override fun onError() {
         TODO("Not yet implemented")
     }
+
+    private fun getIndexFromUrl(url: String): String {
+        return url.split("/").last()
+    }
+
+    override fun listToText(description: List<String>) = description.joinToString("\n\n")
+
 }
